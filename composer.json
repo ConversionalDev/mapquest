@@ -1,0 +1,14 @@
+{
+  "name": "conversional/MapQuest",
+  "type": "library",
+  "description": "PHP Implementation of the MapQuest API.",
+  "keywords": ["matrixroute","mapquest"],
+  "homepage": "https://www.conversion.al",
+  "license": "Apache License 2.0 ",
+  "authors": [
+    {
+      "name": "Conversional GmbH",
+      "email": "support@conversional.de",
+    }
+  ]
+}
