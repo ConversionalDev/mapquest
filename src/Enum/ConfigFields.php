@@ -1,5 +1,5 @@
 <?php
-namespace conversional\mapquest\Enum;
+namespace Conversional\MapQuest\Enum;
 
 class ConfigFields {
     const KEY = 'key';

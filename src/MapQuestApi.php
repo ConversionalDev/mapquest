@@ -1,10 +1,10 @@
 <?php
-namespace conversional\mapquest;
+namespace Conversional\MapQuest;
 
 use GuzzleHttp\Client;
-use conversional\mapquest\http\BasicRequest;
-use conversional\mapquest\http\MatrixSearch;
-use conversional\mapquest\Enum\ConfigFields;
+use Conversional\MapQuest\Http\BasicRequest;
+use Conversional\MapQuest\Http\MatrixSearch;
+use Conversional\MapQuest\Enum\ConfigFields;
 
 // basic request
 class MapQuestApi {

@@ -1,5 +1,5 @@
 <?php
-namespace conversional\mapquest\http;
+namespace Conversional\MapQuest\Http;
 
 class MatrixSearch extends BasicRequest
 {
