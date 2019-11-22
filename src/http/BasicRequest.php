@@ -1,5 +1,5 @@
 <?php
-namespace MapQuest\http;
+namespace conversional\mapquest\http;
 
 class BasicRequest {
     private $endpoint = '';

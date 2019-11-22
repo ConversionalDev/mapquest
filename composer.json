@@ -10,5 +10,8 @@
       "name": "Conversional GmbH",
       "email": "support@conversional.de"
     }
-  ]
+  ],
+  "require": {
+    "guzzlehttp/guzzle": "~6.0"
+  }
 }
