@@ -1,5 +1,5 @@
 {
-  "name": "conversional/MapQuest",
+  "name": "conversional/mapquest",
   "type": "library",
   "description": "PHP Implementation of the MapQuest API.",
   "keywords": ["matrixroute","mapquest"],
