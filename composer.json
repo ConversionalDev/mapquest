@@ -16,7 +16,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Conversional\\MapQuest": ["src/"]
+      "Conversional\\MapQuest\\": ["src/"]
     }
   }
 }
