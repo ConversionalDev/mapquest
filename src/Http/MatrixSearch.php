@@ -3,15 +3,15 @@ namespace Conversional\MapQuest\Http;
 
 class MatrixSearch extends BasicRequest
 {
-    private $endpoint = 'matrixroute';
-    private $type = 'GET';
-    private $defaultOptions = array("manyToOne" => true);
-
     public function __construct(array $destinations, array $options = array())
     {
+        $this->setEndpoint('routematrix');
+        $this->setType('GET');
+        $this->setDefaultOptions(array("manyToOne" => true));
+
         $body = array(
             'locations' => $destinations,
-            'options' => array_merge($this->defaultOptions, $options)
+            'options' => array_merge($this->getDefaultOptions(), $options)
         );
         $this->_setBody($body);
     }

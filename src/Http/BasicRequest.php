@@ -6,6 +6,7 @@ class BasicRequest {
     private $type = 'GET';
     private $query = array();
     private $body = null;
+    private $options = null;
 
     public function getType() {
         return $this->type;
@@ -18,6 +19,23 @@ class BasicRequest {
     public function getEndpoint() {
         return $this->endpoint;
     }
+
+    protected function setEndpoint(string $endpoint) {
+        $this->endpoint = $endpoint;
+    }
+
+    protected function setDefaultOptions(array $options) {
+        $this->options = $options;
+    }
+
+    public function getDefaultOptions() {
+        return $this->options;
+    }
+
+    protected function setType(string $type) {
+        $this->type = $type;
+    }
+
 
     public function getBody() {
         return $this->body;
