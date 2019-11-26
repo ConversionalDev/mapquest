@@ -1,7 +1,7 @@
 <?php
 namespace Conversional\MapQuest\Http;
 
-class BasicRequest {
+abstract class BasicRequest {
     private $endpoint = '';
     private $type = 'GET';
     private $query = array();
@@ -36,6 +36,9 @@ class BasicRequest {
         $this->type = $type;
     }
 
+    protected function setQuery(array $queryParameters) {
+        $this->query = $queryParameters;
+    }
 
     public function getBody() {
         return $this->body;

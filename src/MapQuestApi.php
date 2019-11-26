@@ -4,11 +4,12 @@ namespace Conversional\MapQuest;
 use GuzzleHttp\Client;
 use Conversional\MapQuest\Http\BasicRequest;
 use Conversional\MapQuest\Http\MatrixSearch;
+use Conversional\MapQuest\Http\Geocode;
 use Conversional\MapQuest\Enum\ConfigFields;
 
 // basic request
 class MapQuestApi {
-    private $base_url = "http://www.mapquestapi.com/directions/v2/";
+    private $base_url = "http://www.mapquestapi.com/";
     private $key = '';
 
     public function __construct(array $config = []) {
@@ -30,6 +31,12 @@ class MapQuestApi {
     public function apiMatrixSearch(string $origin, array $destinations) {
         $destinations = array_unshift($origin, $destinations);
         $request = new MatrixSearch($destinations);
+        return $this->_run($request);
+    }
+
+    public function apiGeoCode(string $address)
+    {
+        $request = new Geocode($address);
         return $this->_run($request);
     }
 

@@ -5,7 +5,7 @@ class MatrixSearch extends BasicRequest
 {
     public function __construct(array $destinations, array $options = array())
     {
-        $this->setEndpoint('routematrix');
+        $this->setEndpoint('directions/v2/routematrix');
         $this->setType('GET');
         $this->setDefaultOptions(array("manyToOne" => true));
 
