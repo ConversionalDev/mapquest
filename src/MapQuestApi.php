@@ -50,7 +50,7 @@ class MapQuestApi {
             'query' => $query_params,
             'json' => $request->getBody()
         ]);
-        return $response->getBody();
+        return $response->getBody()->getContents();
     }
 
 }
