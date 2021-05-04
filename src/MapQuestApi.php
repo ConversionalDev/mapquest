@@ -29,7 +29,7 @@ class MapQuestApi {
     }
 
     public function apiMatrixSearch(string $origin, array $destinations) {
-        $destinations = array_unshift($origin, $destinations);
+        array_unshift($destinations, $origin);
         $request = new MatrixSearch($destinations);
         return $this->_run($request);
     }
