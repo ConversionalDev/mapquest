@@ -7,14 +7,21 @@ Package currently only implements the RouteMatrix endpoint of the API.
 
 ## Setup
 ```
-use /MapQuest/MapQuestApi
+use Conversional\MapQuest\MapQuestApi;
 
 $key = 'your_mapquest_key';
-$config = array('key' => $key);
+$config = ['key' => $key];
 $client = new MapQuestApi($config);
 ```
 
 ## Matrix Request
 ```
-$response = $client->apiMatrixRoute($locations);
+$origin = 'KW1 4YX';
+$destinations = ['LE15 6US'];
+$response = $client->apiMatrixSearch($origin, $destinations);
+```
+
+## Matrix Request
+```
+$response = $client->apiGeoCode($address);
 ```
