@@ -1,6 +1,7 @@
 <?php
 namespace Conversional\MapQuest;
 
+use Conversional\MapQuest\Http\Location;
 use GuzzleHttp\Client;
 use Conversional\MapQuest\Http\BasicRequest;
 use Conversional\MapQuest\Http\MatrixSearch;
@@ -36,10 +37,22 @@ class MapQuestApi {
 
     public function apiGeoCode(string $address)
     {
-        $request = new Geocode($address);
+        $request = Geocode::createGetAddressRequestByLocationString($address);
+
         return $this->_run($request);
     }
 
+    public function getAddressByLocationString(string $location) : array {
+		$request = Geocode::createGetAddressRequestByLocationString($location);
+
+		return json_decode($this->_run($request), 1);
+	}
+
+	public function getAddressByLocationObject(Location  $location) : array {
+		$request = Geocode::createGetAddressRequestByLocationObject($location);
+
+		return json_decode($this->_run($request), 1);
+	}
 
     protected function _run(BasicRequest $request)
     {
@@ -52,5 +65,4 @@ class MapQuestApi {
         ]);
         return $response->getBody()->getContents();
     }
-
 }
