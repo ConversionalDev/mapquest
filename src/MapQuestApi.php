@@ -1,4 +1,5 @@
 <?php
+
 namespace Conversional\MapQuest;
 
 use Conversional\MapQuest\Http\Location;
@@ -9,11 +10,13 @@ use Conversional\MapQuest\Http\Geocode;
 use Conversional\MapQuest\Enum\ConfigFields;
 
 // basic request
-class MapQuestApi {
+class MapQuestApi
+{
     private $base_url = "http://www.mapquestapi.com/";
     private $key = '';
 
-    public function __construct(array $config = []) {
+    public function __construct(array $config = [])
+    {
         $key = (empty($config[ConfigFields::KEY])) ? '' : $config[ConfigFields::KEY];
         $this->setKey($key);
     }
@@ -26,12 +29,15 @@ class MapQuestApi {
     private function setKey(string $key)
     {
         $this->key = $key;
+
         return $this;
     }
 
-    public function apiMatrixSearch(string $origin, array $destinations) {
+    public function apiMatrixSearch(string $origin, array $destinations)
+    {
         $destinations = array_unshift($origin, $destinations);
         $request = new MatrixSearch($destinations);
+
         return $this->_run($request);
     }
 
@@ -42,17 +48,25 @@ class MapQuestApi {
         return $this->_run($request);
     }
 
-    public function getAddressByLocationString(string $location) : array {
-		$request = Geocode::createGetAddressRequestByLocationString($location);
+    public function getAddressByLocationString(string $location): array
+    {
+        $request = Geocode::createGetAddressRequestByLocationString($location);
 
-		return json_decode($this->_run($request), 1);
-	}
+        return json_decode($this->_run($request), 1);
+    }
 
-	public function getAddressByLocationObject(Location  $location) : array {
-		$request = Geocode::createGetAddressRequestByLocationObject($location);
+    public function getAddressByLocationObject(Location $location): array
+    {
+        $request = Geocode::createGetAddressRequestByLocationObject($location);
 
-		return json_decode($this->_run($request), 1);
-	}
+        return json_decode($this->_run($request), 1);
+    }
+    public function getAddressByGeoPoint($lat, $lng): array
+    {
+        $request = Geocode::createGetAddressRequestByGeoPointObject($lat, $lng);
+
+        return json_decode($this->_run($request), 1);
+    }
 
     protected function _run(BasicRequest $request)
     {
@@ -63,6 +77,7 @@ class MapQuestApi {
             'query' => $query_params,
             'json' => $request->getBody()
         ]);
+
         return $response->getBody()->getContents();
     }
 }
